@@ -34,7 +34,8 @@ def search():
                 result += "片名：" + dict["title"] + "<br>"
                 result += "電影介紹：" + dict["hyperlink"] + "<br><br>"
 
-            if result =="":
+            #if result =="":
+            else:
                 #如果查無資料，顯示以下錯誤訊息
                 result = "抱歉，查無相關條件的電影資訊"
 
