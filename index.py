@@ -14,24 +14,14 @@ def index():
     homepage += "<p>系級：資管三B</p>"
     homepage += "<p>學號：410637340</p>"
     #homepage += "<a href=/account>網頁表單輸入實例</a><br><br>"
-    homepage += "<a href=/search>選修課程查詢</a><br><br>"
+    homepage += "<a href=/search>電影查詢</a><br><br>"
     return homepage
-
-@app.route("/account", methods=["GET", "POST"])
-def account():
-    if request.method == "POST":
-        user = request.form["user"]
-        pwd = request.form["pwd"]
-        result = "您輸入的帳號是：" + user + "; 密碼為：" + pwd 
-        return result
-    else:
-        return render_template("account.html")
 
 @app.route("/search", methods=["GET", "POST"])
 def search():
     if request.method == "POST":
         cond = request.form["keyword"] #對應read.py第7行的cond代碼
-        result = "您輸入的課程關鍵字是：" + cond
+        result = "您輸入的電影關鍵字是：" + cond
         
         db = firestore.client()
         collection_ref = db.collection("簡志翔電影")
@@ -46,7 +36,8 @@ def search():
 
             if result =="":
                 #如果查無資料，顯示以下錯誤訊息
-                result = "抱歉，查無相關條件的電影資訊"
+                #result = "抱歉，查無相關條件的電影資訊"
+                print("抱歉，查無相關條件的電影資訊")
 
         return result
     else:
