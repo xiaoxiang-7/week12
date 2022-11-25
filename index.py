@@ -36,7 +36,7 @@ def search():
 
             if result =="":
                 #如果查無資料，顯示以下錯誤訊息
-                result = "抱歉，查無相關條件的電影資訊"
+                result += "抱歉，查無相關條件的電影資訊" + "<br>"
 
         return result
     else:
