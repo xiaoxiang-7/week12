@@ -31,8 +31,8 @@ def search():
             dict = doc.to_dict()
             if cond in dict["title"]:
                 #print("{}老師開的{}課程,每週{}於{}上課".format(dict["Leacture"], dict["Course"],  dict["Time"],dict["Room"]))
-                result += "片名：" + dict["title"] + "\n"
-                result += "電影介紹：" + dict["hyperlink"] + "\n\n"
+                result += "片名：" + dict["title"]
+                result += "電影介紹：" + dict["hyperlink"] + "<br>"
 
             if result =="":
                 #如果查無資料，顯示以下錯誤訊息
